@@ -21,8 +21,8 @@ class Purchase(models.Model):
     date = models.DateTimeField(default=datetime.datetime.now())
 
     @property
-    def precess(self):
+    def process(self):
         return self.item.price * self.quantity
 
     def __str__(self):
-        return f'{self.user} purchased {self.item}'
+        return f'{self.user} purchased {self.item} for'
