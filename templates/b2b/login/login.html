@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel ="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS</title>
+</head>
+
+<body>
+{% if messages %}
+    {% for message in messages %}
+        <p>
+        {{ message }}
+        </p>
+    {% endfor %}
+{% endif %}
+<div class="hero-body has-text-centered is-dark">
+        <h1 class="title">LOGIN</h1>
+    </div>
+
+    <form  method="POST" id="registration" action="{% url 'b2b:login' %}">
+    <section class="section">
+        <div class="container">
+          <div class="columns is-multiline">
+
+            <div class="column is-4">
+              <div class="box has-text-centered">
+                <span class="icon is-size-2 has-text-info"><i class="fa fa-clock"></i></span>
+                <h2 class="is-size-4 mt-4 mb-4 has-text-dark"> Enter Your username</h2>
+                <p>
+                  <input class="input" type="text" Required name="username" placeholder="username">
+                </p>
+
+              </div>
+            </div>
+
+
+
+            <div class="column is-4">
+              <div class="box has-text-centered">
+                <span class="icon is-size-2 has-text-info"><i class="fa fa-credit-card"></i></span>
+                <h2 class="is-size-4 mt-4 mb-4 has-text-dark"> Enter your password</h2>
+                <p>
+                  <input class="input" type="password" Required name="password" placeholder="password">
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      {% csrf_token %}
+    </form>
+<center><button class="button is-info mt-5" type="submit" form='registration'>Login</button></center>
+</body>
+</html>

@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel ="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS</title>
+</head>
+
+<body>
+{% if messages %}
+    {% for message in messages %}
+        <p>
+        {{ message }}
+        </p>
+    {% endfor %}
+{% endif %}
+<div class="hero-body has-text-centered is-dark">
+        <h1 class="title">SIGNUP</h1>
+    </div>
+
+    <form  method="POST" id="registration" action="{% url 'b2b:signup' %}">
+    <section class="section">
+        <div class="container">
+          <div class="columns is-multiline">
+
+            <div class="column is-4">
+              <div class="box has-text-centered">
+                <span class="icon is-size-2 has-text-info"><i class="fa fa-clock"></i></span>
+                <h2 class="is-size-4 mt-4 mb-4 has-text-dark"> Enter Your username</h2>
+                <p>
+                  <input class="input" type="text" Required name="username" placeholder="username">
+                </p>
+
+              </div>
+            </div>
+
+            <div class="column is-4">
+              <div class="box has-text-centered">
+                <span class="icon is-size-2 has-text-info"><i class="fa fa-book"></i></span>
+                <h2 class="is-size-4 mt-4 mb-4 has-text-dark"> Enter your email</h2>
+                <p>
+                  <input class="input" type="email" Required name="email" placeholder=" email">
+                </p>
+              </div>
+            </div>
+
+
+            <div class="column is-4">
+              <div class="box has-text-centered">
+                <span class="icon is-size-2 has-text-info"><i class="fa fa-book"></i></span>
+                <h2 class="is-size-4 mt-4 mb-4 has-text-dark"> Enter your firstname</h2>
+
+                <p>
+                  <input class="input" type="text" Required name="first_name" placeholder=" firstname">
+                </p>
+              </div>
+            </div>
+
+            <div class="column is-4">
+              <div class="box has-text-centered">
+                <span class="icon is-size-2 has-text-info"><i class="fa fa-book"></i></span>
+                <h2 class="is-size-4 mt-4 mb-4 has-text-dark"> Enter your lastname</h2>
+                <p>
+                  <input class="input" type="text" Required name="last_name" placeholder=" lastname">
+                </p>
+              </div>
+            </div>
+
+              <div class="column is-4">
+              <div class="box has-text-centered">
+                <span class="icon is-size-2 has-text-info"><i class="fa fa-book"></i></span>
+                <h2 class="is-size-4 mt-4 mb-4 has-text-dark"> address</h2>
+                <p>
+                  <input class="input" type="text" Required name="address" placeholder="address">
+                </p>
+              </div>
+            </div>
+
+              <div class="column is-4">
+              <div class="box has-text-centered">
+                <span class="icon is-size-2 has-text-info"><i class="fa fa-book"></i></span>
+                <h2 class="is-size-4 mt-4 mb-4 has-text-dark"> Enter your phone number</h2>
+                <p>
+                  <input class="input" type="text" Required name="phone" placeholder=" phone">
+                </p>
+              </div>
+            </div>
+
+
+
+            <div class="column is-4">
+              <div class="box has-text-centered">
+                <span class="icon is-size-2 has-text-info"><i class="fa fa-credit-card"></i></span>
+                <h2 class="is-size-4 mt-4 mb-4 has-text-dark"> Enter your password</h2>
+                <p>
+                  <input class="input" type="password" Required name="password1" placeholder="password">
+                </p>
+              </div>
+            </div>
+
+
+            <div class="column is-4">
+              <div class="box has-text-centered">
+                <span class="icon is-size-2 has-text-info"><i class="fa fa-book"></i></span>
+                <h2 class="is-size-4 mt-4 mb-4 has-text-dark"> Enter Again your password, To be Sure of It</h2>
+                <p>
+                  <input class="input" type="password" Required name="password2" placeholder=" verify password">
+                </p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+      {% csrf_token %}
+    </form>
+<center><button class="button is-info mt-5" type="submit" form='registration'>Create Account</button></center>
+</body>
+</html>

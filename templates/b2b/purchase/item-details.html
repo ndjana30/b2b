@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ request.user }}</title>
+    <link rel ="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+{% if messages %}
+    {% for message in messages %}
+        <p>
+        {{ message }}
+        </p>
+    {% endfor %}
+{% endif %}
+
+<div class="column is-10">
+        <div class="columns is-multiline">
+
+            <div
+                class="column is-4">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="{{item.image.url}}" alt="Placeholder image">
+                        </figure>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <a href=""> <p class="is-size-5">{{ item.name }}</p></a>
+                            </div>
+                            <div class="media-content">
+                                <a href=""> <p class="is-size-4">{{ item.price }}FCFA</p></a>
+
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <p>{{ item.posted }}</p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <form id="purchase" action="{% url 'b2b:purchase' item.pk item.name %}" method="post">
+                {% csrf_token %}
+                <section class="section">
+        <div class="container">
+          <div class="columns is-multiline">
+              <label>Quantity</label>
+                  <input type="number" Required name="quantity">
+          </div>
+        </div>
+      </section>
+            </form>
+            <button form="purchase" class="button is-primary"> Add to cart </button>
+                            </div>
+
+                        </div>
+</div>
+</body>
+</html>
