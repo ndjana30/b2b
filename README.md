@@ -1,2 +1,2 @@
 # b2b
-b2b for large systems course
+b2b e-commerce site with python django
